@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button menu='first' type='reset' color="danger"></ion-menu-button>
+      <!-- menu属性值与menuId值匹配 -->
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button menu='second'></ion-menu-button>
+    </ion-buttons>
+    <ion-title>slidemenu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- 1.side属性控制左侧或右侧 -->
+  <!-- 2.type控制弹出类型，电脑上效果不明显 -->
+  <!-- the side menu  -->
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <!-- 点击当前项后关闭侧边栏 -->
+        <ion-menu-toggle>
+          <ion-item color="primary">Menu Item1</ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item color="secondary">Menu Item2</ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item color="tertiary">Menu Item3</ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- the main content -->
+  <ion-router-outlet id="main"></ion-router-outlet>
+
+  <!-- 起一个包裹作用 -->
+  <ion-split-pane>
+    <ion-menu side="end" menuId="second" contentId="main2">
+      <ion-header>
+        <ion-toolbar color="danger">
+          <ion-title>Start Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item color="primary">Menu Item</ion-item>
+          <ion-item color="primary">Menu Item</ion-item>
+          <ion-item color="primary">Menu Item</ion-item>
+          <ion-item color="primary">Menu Item</ion-item>
+          <ion-item color="primary">Menu Item111</ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <!-- 要有这个占位符，id与contentId匹配，否则报错 -->
+    <ion-router-outlet id="main2"></ion-router-outlet>
+  </ion-split-pane>
+
+  <ion-button (click)="openSlideMenu()" expand="block" shape="round">
+    打开侧边栏
+  </ion-button>
+  <ion-button (click)="closeSlideMenu()" expand="block" shape="round">
+    关闭侧边栏
+  </ion-button>
+</ion-content>

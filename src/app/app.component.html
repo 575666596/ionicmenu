@@ -1,20 +1,5 @@
 <ion-app>
-  <!-- <ion-menu side="start" menuId="first">
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Start Menuion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <item>Menu Itemion-</item>
-        <item>Menu Itemion-</item>
-        <item>Menu Itemion-</item>
-        <item>Menu Itemion-</item>
-        <item>Menu Itemion-</item>
-      </ion-list>
-    </ion-content>
-  </ion-menu> -->
+
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
@@ -23,6 +8,7 @@
           <ion-list-header>收件箱</ion-list-header>
           <ion-note>hi@ionicframework.com</ion-note>
 
+          <!-- routerDirection="root"的作用是跳转页面的时候，侧边栏向左消失，页面不动，如果不加，则页面也跟着向左移动 -->
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
               detail="false" [class.selected]="selectedIndex == i">
